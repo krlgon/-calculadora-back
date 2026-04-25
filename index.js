@@ -192,12 +192,12 @@ app.post("/calcularValorFinal/", (req, res) => {
   }
 
   if (base < 0 || ivaVal < 0 || descVal < 0) {
-    return res.status(400).json({
-      codigoHTTP: 400,
-      Titulo: "Datos inválidos: los valores no pueden ser negativos",
+    return res.status(404).json({
+      codigoHTTP: 404,
+      Titulo: "Valor No encontrado",
       Valor: 0,
     });
-  }
+}
 
   // Fórmula: (costoBase * (1 + iva/100)) * (1 - descuento/100)
   // Se aplica IVA sobre la base, luego descuento sobre el subtotal con IVA
